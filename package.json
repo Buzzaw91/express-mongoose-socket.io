@@ -1,0 +1,40 @@
+{
+  "name": "server-boilerplate",
+  "version": "1.0.0",
+  "description": "This repo is an opinionated approach for a scalable back-end API with auth (with JWT).",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.5",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "date-fns": "^1.30.1",
+    "dotenv": "^7.0.0",
+    "esm": "^3.2.20",
+    "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "helmet": "^3.16.0",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^1.18.10",
+    "mongoose": "^5.4.19",
+    "socket.io": "^2.2.0",
+    "socketio-jwt": "^4.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -r esm index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lunatolun/express-mongoose-socket.io.git"
+  },
+  "author": "M. Tolun Tutuncu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lunatolun/express-mongoose-socket.io/issues"
+  },
+  "homepage": "https://github.com/lunatolun/express-mongoose-socket.io#readme"
+}
