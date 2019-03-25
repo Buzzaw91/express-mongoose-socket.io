@@ -1,6 +1,20 @@
 # Server Boilerplate
 This repo is an opinionated approach for a scalable back-end API with auth (with JWT).
 
+WARNING: Don't forget to validate the data coming to your endpoints. I did not include anything for security except auth with JWT, which is NOT enough.
+
+## Features
+
+- [x] Cors
+- [x] .env with dotenv
+- [x] Working signup / login routes
+- [x] Save/validate hashed password (bcrypt)
+- [x] Socket.io
+- [x] JWT auth to all endpoints (except excluded ones in config) and socket connection
+- [x] Todos - sends todo to all connected clients
+- [ ] Another client side repo showing how to use/connect to socket.io etc. (coming soon)
+
+
 ## Config
 
 Clone and do npm i

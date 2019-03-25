@@ -1,9 +1,12 @@
 // import routes
 import usersRouter from './users/routes'
+import todosRouter from './todos/routes'
 
-const appConfig = (app) => {
+// our endpoints
+const apiConfig = (app) => {
   app.use('/users', usersRouter)
-  // other routes
+  app.use('/todos', todosRouter)
+  // other routes here...
 }
 
-export default appConfig
+export default apiConfig

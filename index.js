@@ -2,23 +2,24 @@ import express from 'express'
 import dbConfig from './config/db'
 import ioConfig from './config/ioConfig'
 import configMiddlewares from './config/middlewares'
-import appConfig from './api'
+import apiConfig from './api'
 import cors from 'cors'
 import http from 'http'
 import SocketIO from 'socket.io'
 
+// use port from env or 4000 if it doesn't exist. feel free to change
 const port = process.env.PORT || 4000
 const app = express()
 
 // add your cors
 app.use('*', cors({ origin: [
   'http://localhost:3000',
-  'http://localhost:4000'
+  'http://localhost:4000',
 ] }))
 
 dbConfig(app)
 configMiddlewares(app)
-appConfig(app)
+apiConfig(app)
 
 const server = http.Server(app)
 const io = new SocketIO(server)

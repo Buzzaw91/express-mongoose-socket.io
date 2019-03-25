@@ -43,8 +43,5 @@ export default {
 
     // send the token and user object as response
     res.send({ user, token })
-  },
-
-  async forgotPassword(req, res) {},
-  async resetPassword(req, res) {}
+  }
 }

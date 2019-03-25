@@ -22,9 +22,7 @@ const UserSchema = new mongo.Schema({
     type: Date,
     default: Date.now
   },
-  password: String,
-  resetPasswordToken: String,
-  resetPasswordExpires: Date,
+  password: String
 }, {strict: false})
 
 // generating a hashed password with bycrpt

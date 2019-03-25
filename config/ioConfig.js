@@ -16,8 +16,11 @@ export default io => {
     console.log('a user connected', socket.id)
 
     // create a room with userId
-    // useful for sending data to online users
+    // useful for sending data to a single online user
     socket.join(userId)
+
+    // join all-users room. we use this to send the changes to all online users
+    socket.join('all-users')
 
     // no need to leave room, because socket.io automatically does that
     socket.on('disconnect', () => {
