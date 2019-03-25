@@ -6,5 +6,6 @@ const router = express.Router()
 // signup endpoint is API_URL/users/signup in this case
 router.post('/signup', controller.signup)
 router.post('/login', controller.login)
+router.post('/initialData', controller.getInitialData)
 
 export default router

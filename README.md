@@ -12,8 +12,11 @@ WARNING: Don't forget to validate the data coming to your endpoints. I did not i
 - [x] Socket.io
 - [x] JWT auth to all endpoints (except excluded ones in config) and socket connection
 - [x] Todos - sends todo to all connected clients
-- [ ] Another client side repo showing how to use/connect to socket.io etc. (coming soon)
+- [x] Another client side repo showing how to use/connect to socket.io etc. (react-native-boilerplate)
 
+## Client side usage
+
+If you want a client side example, worry not, citizen! Here is another boilerplate (react-native) that works with this repository: [react-native-boilerplate](https://github.com/lunatolun/react-native-boilerplate)
 
 ## Config
 

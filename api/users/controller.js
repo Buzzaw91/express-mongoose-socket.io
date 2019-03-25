@@ -1,4 +1,4 @@
-import { User } from '../models'
+import { User, Todo } from '../models'
 import config from '../../config'
 import jwt from 'jsonwebtoken'
 
@@ -20,7 +20,7 @@ export default {
     const user = await newUser.save(),
       tokenData = { id: user.id },
       // create a token
-      token = jwt.sign(tokenData, config.JWT_SECRET, {expiresIn: '14d'})
+      token = jwt.sign(tokenData, config.JWT_SECRET, { expiresIn: '14d' })
 
     // send the token and user object as response
     res.send({ user, token })
@@ -43,5 +43,16 @@ export default {
 
     // send the token and user object as response
     res.send({ user, token })
-  }
+  },
+
+  async getInitialData(req, res) {
+    console.log('getting initial data')
+    // following exists in the current config, but we don't need it here.
+    // just showing that it exists...
+    // const userId = req.user.id
+
+    const todos = await Todo.find().sort({ createdAt: -1 })
+
+    res.send(todos)
+  },
 }
