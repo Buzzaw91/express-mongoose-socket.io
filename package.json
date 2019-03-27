@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "This repo is an opinionated approach for a scalable back-end API with auth (with JWT).",
   "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
   "dependencies": {
     "bcrypt": "^3.0.5",
     "body-parser": "^1.18.3",

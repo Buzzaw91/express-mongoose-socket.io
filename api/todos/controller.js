@@ -7,10 +7,12 @@ import { Todo } from '../models'
 export default {
   async add(req, res) {
     const { io } = req.app
-    const { text } = req.body
+    const { text, _id } = req.body
 
     const todo = new Todo({
-      text
+      _id,
+      text,
+      createdBy: req.user.id
     })
 
     await todo.save()
