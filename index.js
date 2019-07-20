@@ -22,7 +22,7 @@ configMiddlewares(app)
 apiConfig(app)
 
 const server = http.Server(app)
-const io = new SocketIO(server)
+export const io = new SocketIO(server)
 
 ioConfig(io)
 
