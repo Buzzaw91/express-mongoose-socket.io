@@ -20,7 +20,7 @@ To create a new endpoint, all you have to do is create a folder with an index th
 
 Endpoint file example (todos/add.js):
 
-``
+```
   import { Todo } from '../models'
   import { io } from '../../'
 
@@ -49,14 +49,14 @@ Endpoint file example (todos/add.js):
   }
 
   export default add
-``
+```
 
 Endpoint index example:
 
-``
+```
   export { default as add } from './add'
   // other exports
-``
+```
 
 ## Client side usage
 
