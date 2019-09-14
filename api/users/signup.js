@@ -1,4 +1,4 @@
-import { User } from '../models'
+import { User } from '../../models'
 import config from '../../config'
 import jwt from 'jsonwebtoken'
 

@@ -1,5 +1,8 @@
 # Server Boilerplate
-This repo is an opinionated approach for a scalable back-end API with auth (with JWT).
+This repo is an opinionated approach for a scalable back-end API with auth (with JWT)
+All the endpoints are generated automatically from API folders and files. You heard it right!
+
+DISCLAIMER: This repository is just showing how to automate this process. Feel free to extend the routeCreator (read more below to see what it does currently) to support v1, v2 etc. based on your needs. The function is well documented.
 
 WARNING: Don't forget to validate the data coming to your endpoints. I did not include anything for security except auth with JWT, which is NOT enough.
 
@@ -12,20 +15,26 @@ WARNING: Don't forget to validate the data coming to your endpoints. I did not i
 - [x] Socket.io
 - [x] JWT auth to all endpoints (except excluded ones in config) and socket connection
 - [x] Todos - sends todo to all connected clients
-- [x] Another client side repo showing how to use/connect to socket.io etc. (react-native-boilerplate)
 
 ## Server usage
 
-To create a new endpoint, all you have to do is create a folder with an index that exports each endpoint file and import it to the api/index
+To create a new endpoint, all you have to do is create a folder, and put each endpoint as a js file. `lib/routeCreator` handles everything else. That's right!
+
+That's all you have to do! How it works?
+
+lib/routeCreator.js reads every folder in API, loops in them
+then for each file dynamically generates endpoints
+lets say folder name is todos and file name is add and method is post
+results in a post endpoint at APP_URL/todos/add
 
 Endpoint file example (todos/add.js):
 
 ```
-  import { Todo } from '../models'
+  import { Todo } from '../../models'
   import { io } from '../../'
 
   async function action(req, res) {
-    const { io } = req.app
+    const { io } = req.app // io exists in every endpoint automatically
     const { text, _id } = req.body
 
     const todo = new Todo({
@@ -39,7 +48,7 @@ Endpoint file example (todos/add.js):
     // send todo to all connected users
     io.to('all-users').emit('newTodo', todo)
 
-    // tell the current user it was successful (or send the data if you want)
+    // tell the current user it was successful (or send other the data if you want)
     res.send(true)
   }
 
@@ -50,17 +59,6 @@ Endpoint file example (todos/add.js):
 
   export default add
 ```
-
-Endpoint index example:
-
-```
-  export { default as add } from './add'
-  // other exports
-```
-
-## Client side usage
-
-If you want a client side example, worry not, citizen! Here is another boilerplate (react-native) that works with this repository: [react-native-boilerplate](https://github.com/lunatolun/react-native-boilerplate)
 
 ## Config
 
@@ -78,8 +76,8 @@ JWT_SECRET=YOURJWTSECRET
 Other than this, you need to have mongo installed locally.
 Follow [this](https://docs.mongodb.com/v3.2/administration/install-community/) if you haven't done so.
 
-Alternatively, you can quickly create an account in [mlab](http://mlab.com/) and use the server from there. There is a sandbox tier (free).
+Alternatively, you can quickly create an account in [mongodb](http://mongodb.com/) and use the DB from there. There is a sandbox tier (free).
 
 ## Running
 
-If you have the DB locally, do `mongod` in terminal, then run the project `npm start`
+If you have the DB locally, do `mongod` in terminal, then run the project `npm start`, or just `npm start`if you used mongodb.com for the db

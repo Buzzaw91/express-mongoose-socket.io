@@ -1,4 +1,4 @@
-import { Todo } from '../models'
+import { Todo } from '../../models'
 import { io } from '../../'
 
 async function action(req, res) {

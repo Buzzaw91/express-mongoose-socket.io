@@ -2,10 +2,10 @@ import express from 'express'
 import dbConfig from './config/db'
 import ioConfig from './config/ioConfig'
 import configMiddlewares from './config/middlewares'
-import apiConfig from './api'
 import cors from 'cors'
 import http from 'http'
 import SocketIO from 'socket.io'
+import { routeCreator } from './lib'
 
 // use port from env or 4000 if it doesn't exist. feel free to change
 const port = process.env.PORT || 4000
@@ -19,7 +19,13 @@ app.use('*', cors({ origin: [
 
 dbConfig(app)
 configMiddlewares(app)
-apiConfig(app)
+/*
+  routeCreator reads every folder in API, loops in them
+  then for each file dynamically generates endpoints
+  lets say folder name is todos and file name is add and method is post
+  results in a post endpoint at APP_URL/todos/add
+*/
+app.use(routeCreator())
 
 const server = http.Server(app)
 export const io = new SocketIO(server)

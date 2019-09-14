@@ -1,5 +1,5 @@
 import mongo from 'mongoose'
-import { User } from '../api/models'
+import { User } from '../models'
 import config from './'
 
 export default app => {
