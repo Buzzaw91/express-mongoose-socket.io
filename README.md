@@ -24,7 +24,8 @@ That's all you have to do! How it works?
 
 lib/routeCreator.js reads every folder in API, loops in them
 then for each file dynamically generates endpoints
-lets say folder name is todos and file name is add and method is post
+
+Lets say folder name is todos and file name is add and method is post
 results in a post endpoint at APP_URL/todos/add
 
 Endpoint file example (todos/add.js):
