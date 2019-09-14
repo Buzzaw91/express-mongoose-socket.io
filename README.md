@@ -25,8 +25,7 @@ That's all you have to do! How it works?
 lib/routeCreator.js reads every folder in API, loops in them
 then for each file dynamically generates endpoints
 
-Lets say folder name is todos and file name is add and method is post
-results in a post endpoint at APP_URL/todos/add
+Lets say folder name is todos and file name is add and method is post. It results in a post endpoint at APP_URL/todos/add
 
 Endpoint file example (todos/add.js):
 
@@ -81,4 +80,4 @@ Alternatively, you can quickly create an account in [mongodb](http://mongodb.com
 
 ## Running
 
-If you have the DB locally, do `mongod` in terminal, then run the project `npm start`, or just `npm start`if you used mongodb.com for the db
+If you have the DB locally, do `mongod` in terminal, then run the project `npm start`, or just `npm start` if you used mongodb.com
