@@ -54,10 +54,21 @@ Endpoint file example (todos/add.js):
 
   const add = {
     method: 'post', // change this to the correct router method (post, get etc...)
-    action
+    action,
+    // if its a get request and you want to have an endpoint like todos/getDetails/:id, use params. otherwise no need to have params
+    params: '/:id' // use it with the slash
   }
 
   export default add
+```
+
+For GET request, alternatively you can name the file like :param, which will result in a get endpoint with URL params.
+
+Example:
+
+```
+  fileName: :id.js // in todos folder
+  result: API_URL/todos/:id // get endpoint
 ```
 
 ## Config
